@@ -1,23 +1,21 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Alejandro Múnez — Mobile & Web Developer",
-  author: "Alejandro Múnez Cuntez",
+  title: "Samir Kadri — Mechanical Engineer",
+  author: "Samir Kadri",
   description:
-    "Software Engineer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
+    "Mechanical Engineering Grad Student at UofT specializing in Computational Mechanics, CFD, and FEA.",
   lang: "en",
   siteLogo: "/alejandro-small.jpg",
   navLinks: [
     { text: "Experience", href: "#experience" },
     { text: "Projects", href: "#projects" },
+    { text: "Skills", href: "#skills" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "Email", href: "mailto:samir.kadri@mail.utoronto.ca" },
+    { text: "LinkedIn", href: "#" },
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
@@ -25,73 +23,97 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Alejandro Múnez",
-    specialty: "Mobile & Web Developer",
+    name: "Samir Kadri",
+    specialty: "Mechanical Engineering Grad Student",
     summary:
-      "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-    email: "example@email.com",
+      "I enjoy designing, analyzing, and building high-performance components by bridging the gap between simulation and real-world performance.",
+    email: "samir.kadri@mail.utoronto.ca",
   },
   experience: [
     {
-      company: "Zalmart",
-      position: "Lead Android Developer",
-      startDate: "May 2018",
-      endDate: "Sept 2020",
-      summary: [
-        "Implemented advanced memory management and code optimization techniques, resulting in a reduction in application load time by 40% and a decrease in crashes by 25%. This significantly improved user experience and increased user retention by 20%.",
-        "I led a team of developers in building and integrating new features using Jetpack Android components such as LiveData and ViewModel. This enabled us to build scalable and maintainable applications, reducing the crash rate by 20% and speeding up the time to delivery of new features by 15%.",
-        "Integrated Google Pay for in-app purchases, resulting in a 35% increase in mobile transaction revenue. Additionally, implemented Firebase Analytics to gain insights into user behavior, enabling data-driven optimizations and a 30% increase in user retention.",
-      ],
+      company: "Flow Robotics | The Entrepreneurship Hatchery",
+      position: "Mechanical Engineering Intern",
+      startDate: "Sept 2024",
+      endDate: "Sept 2025",
+      summary: "Worked on the product design and prototyping of a small intestine entroscopy device.",
     },
     {
-      company: "Bankit",
-      position: "Mobile Developer",
-      startDate: "Feb 2017",
-      endDate: "May 2018",
-      summary: [
-        "I designed and developed a mobile application using Flutter, allowing it to be deployed on both Android and iOS with a single codebase. This reduced development time by 50% and maintenance costs by 30%, facilitating a consistent user experience on both platforms.",
-        "I integrated biometric authentication and data encryption, significantly improving the security of user data. This implementation resulted in a 40% increase in user trust and a 25% reduction in unauthorized access attempts.",
-      ],
+      company: "TATA Motors",
+      position: "Project Intern",
+      startDate: "June 2023",
+      endDate: "Sept 2023",
+      summary: "Summer-long stint at TATA Motors.",
     },
     {
-      company: "Driveer",
-      position: "Frontend Developer",
-      startDate: "Jun 2015",
-      endDate: "Oct 2016",
-      summary:
-        "Developed and integrated a real-time vehicle tracking system using WebSockets, improving accuracy and data update in the application. This functionality increased user satisfaction by 30% and reduced customer service inquiries by 25%.",
+      company: "Polyvault Auto",
+      position: "Product Design Intern",
+      startDate: "June 2021",
+      endDate: "Sept 2021",
+      summary: "Summer-long stint at Polyvault Auto.",
     },
   ],
   projects: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
+      name: "University of Toronto Formula Racing - FSAE",
+      summary: "Designed and manufactured critical vehicle systems, specializing in high-performance suspension and aerodynamics components. Developed rear suspension uprights for in-hub motor integration and 23.3% performance increase in front wing/nosecone.",
       image: "/spotifu.png",
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
+      name: "SparkJet Actuator Model Development",
+      summary: "High-fidelity CFD model for Spark-Jet actuators to simulate complex phenomena like peak jet velocity and flow reattachment using COMSOL Multiphysics on HPC clusters.",
       image: "/shopify-clon.png",
     },
     {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
+      name: "Python based CFD Solver",
+      summary: "Developed a high-fidelity CFD solver in Python for steady, incompressible flow, implementing SIMPLE algorithm and GMRES linear solver on a collocated finite-volume grid.",
+      image: "/clone-ig.png",
+    },
+    {
+      name: "Generalized Stochastic Microcontact Model",
+      summary: "Developed a generalized 3D stochastic microcontact model on MATLAB to predict mechanical power loss of helical gears and elliptical contacts.",
+      image: "/spotifu.png",
+    },
+    {
+      name: "VJTI Racing e-BAJA",
+      summary: "Led end-to-end development of suspension package, bridging kinematic simulation and precision manufacturing. Ranked 1st in Design at ATVC India 2023.",
+      image: "/shopify-clon.png",
+    },
+    {
+      name: "AeroVJTI - AIAA Design/Build/Fly",
+      summary: "Spearheaded design of high-strength, lightweight airframe components using topology optimization and innovative foldable wing mechanism.",
       image: "/clone-ig.png",
     },
   ],
   about: {
     description: `
-      Hi, I’m Alejandro Múnez, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
+      I'm currently pursuing my MEng in Mechanical Engineering at The University of Toronto, with a specialization in Computational Mechanics. I recently completed an internship at a med-tech startup, funded by The Entrepreneurship Hatchery, where I worked on the product design and prototyping of a small intestine entroscopy device.
 
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
+      As a mechanical engineer, I enjoy bridging the gap between simulation and real-world performance by combining computational mechanics, CFD, and FEA with practical design and testing. Through my work in the Turbulence Research Lab on active flow devices, and on The University of Toronto Formula Racing Team in the aerodynamics and suspension sections, my goal is to develop designs and simulation workflows that are numerically robust, and translate into components that are manufacturable, reliable and high-performing.
+
+      When I'm not working on bringing CAD models to life, I'm probably watching sports, immersed in a video game, or experimenting in the kitchen.
     `,
     image: "/alejandro-big.jpg",
+  },
+  skills: {
+    title: "Skills",
+    data: [
+      {
+        category: "CAD Tools",
+        skills: ["SolidWorks", "CATIA", "Fusion 360", "AutoCAD"],
+      },
+      {
+        category: "CFD and FEA Tools",
+        skills: ["Siemens STAR-CCM+", "COMSOL Multiphysics", "ANSYS Fluent", "ANSYS Mechanical"],
+      },
+      {
+        category: "Languages",
+        skills: ["Python", "MATLAB"],
+      },
+      {
+        category: "Other Skills",
+        skills: ["HPC Workflows", "Lotus Suspension Analysis - SHARK", "MSC Adams", "GD&T"],
+      },
+    ],
   },
 };
 
