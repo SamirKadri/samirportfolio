@@ -1,7 +1,7 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Samir Kadri — Mechanical Engineer",
+  title: "Samir Kadri | Mechanical Engineer",
   author: "Samir Kadri",
   description:
     "Mechanical Engineering Grad Student at UofT specializing in Computational Mechanics, CFD, and FEA.",
