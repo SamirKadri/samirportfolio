@@ -8,12 +8,12 @@ const { siteLogo, navLinks, author } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-white px-5 py-6"
 >
   <a
     href="/"
     aria-label="Home link"
-    class="font-serif text-2xl font-bold text-white transition-colors duration-300 hover:text-primary"
+    class="font-serif text-2xl font-bold text-neutral-900 transition-colors duration-300 hover:text-primary"
   >
     {author}
   </a>
@@ -29,7 +29,7 @@ const { siteLogo, navLinks, author } = Astro.props;
   </button>
 
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-white px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
     id="main-menu"
   >
     <ul class="gap-2 sm:flex">
@@ -37,7 +37,7 @@ const { siteLogo, navLinks, author } = Astro.props;
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-neutral-900`}
               href={link.href}
             >
               {link.text}
@@ -73,9 +73,9 @@ const { siteLogo, navLinks, author } = Astro.props;
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-white", "md:after:opacity-100");
+              item.classList.add("text-neutral-900", "md:after:opacity-100");
             } else {
-              item.classList.remove("text-white", "md:after:opacity-100");
+              item.classList.remove("text-neutral-900", "md:after:opacity-100");
             }
           });
         }

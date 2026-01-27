@@ -5,23 +5,24 @@ type Props = HeroProps;
 const { name, specialty, summary, email } = Astro.props;
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-  >
-    {name}
-  </h1>
-  <p
-    class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
-  >
-    {specialty}
-  </p>
-  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
-    {summary}
-  </p>
+<section class="py-20 md:py-32" id="#hero">
+  <div class="flex flex-col gap-8 opacity-0 animate-slide-in animation-delay-300">
+    <h1 class="font-serif text-5xl font-bold text-neutral-800 sm:text-6xl md:text-7xl">
+      Hello! 👋
+    </h1>
+    
+    <p class="font-serif text-3xl leading-relaxed text-neutral-600 sm:text-4xl sm:leading-relaxed md:text-5xl md:leading-tight">
+      I'm <span class="font-bold text-neutral-900">{name}</span>, a {specialty} at UofT who {summary} 🚀
+    </p>
 
-  <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-    href={`mailto:${email}`}>Get in Touch</a
-  >
+    <div class="mt-4 flex items-center gap-2 text-lg sm:text-xl">
+      <span class="text-neutral-500">Get in touch 👉</span>
+      <a
+        class="font-medium text-primary hover:text-primary/80 transition-colors border-b-2 border-primary/20 hover:border-primary"
+        href={`mailto:${email}`}
+      >
+        {email}
+      </a>
+    </div>
+  </div>
 </section>
