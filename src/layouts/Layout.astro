@@ -29,6 +29,11 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <title>{title}</title>
 
     <meta property="og:title" content={title} />
@@ -40,9 +45,26 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+      if (theme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+      window.localStorage.setItem("theme", theme);
+    </script>
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
-  <body class="bg-white font-sans selection:bg-primary selection:text-white">
+  <body class="bg-[var(--bg-body)] font-sans selection:bg-[#fde047] selection:text-black transition-colors duration-300">
     <Header siteLogo={siteLogo} navLinks={navLinks} author={author} />
     <main class="mx-auto max-w-3xl px-5">
       <slot />

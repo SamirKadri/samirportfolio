@@ -24,9 +24,9 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "Samir Kadri",
-    specialty: "Mechanical Engineering Grad Student",
+    specialty: "mechanical engineering grad student",
     summary:
-      "I enjoy designing, analyzing, and building high-performance components by bridging the gap between simulation and real-world performance.",
+      "enjoys designing, analyzing, and building high-performance components",
     email: "samir.kadri@mail.utoronto.ca",
   },
   experience: [
@@ -86,11 +86,11 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      I'm currently pursuing my MEng in Mechanical Engineering at The University of Toronto, with a specialization in Computational Mechanics. I recently completed an internship at a med-tech startup, funded by The Entrepreneurship Hatchery, where I worked on the product design and prototyping of a small intestine entroscopy device.
+      <p class="mb-6">I'm currently pursuing my MEng in Mechanical Engineering at <strong class="text-[var(--text-heading)]">The University of Toronto</strong>, with a specialization in Computational Mechanics. I recently completed an internship at a med-tech startup, funded by <strong class="text-[var(--text-heading)]">The Entrepreneurship Hatchery</strong>, where I worked on the product design and prototyping of a small intestine entroscopy device. My prior internship experiences also include summer-long stints at <strong class="text-[var(--text-heading)]">TATA Motors</strong> and <strong class="text-[var(--text-heading)]">PolyVault Auto</strong>.</p>
 
-      As a mechanical engineer, I enjoy bridging the gap between simulation and real-world performance by combining computational mechanics, CFD, and FEA with practical design and testing. Through my work in the Turbulence Research Lab on active flow devices, and on The University of Toronto Formula Racing Team in the aerodynamics and suspension sections, my goal is to develop designs and simulation workflows that are numerically robust, and translate into components that are manufacturable, reliable and high-performing.
+      <p class="mb-6">As a mechanical engineer, I enjoy bridging the gap between simulation and real-world performance by combining computational mechanics, CFD, and FEA with practical design and testing. Through my work in the <strong class="text-[var(--text-heading)]">Turbulence Research Lab</strong> on active flow devices, and on <strong class="text-[var(--text-heading)]">The University of Toronto Formula Racing Team</strong> in the aerodynamics and suspension sections, my goal is to develop designs and simulation workflows that are numerically robust, and translate into components that are manufacturable, reliable and high-performing.</p>
 
-      When I'm not working on bringing CAD models to life, I'm probably watching sports, immersed in a video game, or experimenting in the kitchen.
+      <p><strong class="text-[var(--text-heading)]">When I'm not working on bringing CAD models to life</strong>, I'm probably watching sports, immersed in a video game, or experimenting in the kitchen.</p>
     `,
     image: "/alejandro-big.jpg",
   },

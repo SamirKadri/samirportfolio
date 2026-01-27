@@ -10,20 +10,20 @@ const { skills } = Astro.props;
 ---
 
 <Section text={skills.title} href="skills">
-  <div class="grid gap-12 sm:grid-cols-2">
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
     {
       skills.data.map(({ category, skills }) => (
-        <div>
-          <h3 class="mb-4 font-serif text-2xl font-semibold text-primary">
+        <div class="flex flex-col gap-4">
+          <h3 class="font-sans text-base font-bold uppercase tracking-wide text-[var(--text-heading)]">
             {category}
           </h3>
-          <div class="flex flex-wrap gap-3">
+          <ul class="flex flex-col gap-2">
             {skills.map((skill) => (
-              <span class="rounded-full border border-neutral-200 bg-neutral-100 px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200 transition-colors">
+              <li class="font-sans text-[var(--text-muted)] hover:text-[var(--text-heading)] transition-colors duration-300">
                 {skill}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       ))
     }

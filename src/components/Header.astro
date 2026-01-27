@@ -1,52 +1,58 @@
 ---
 import Menu from "@icons/Menu.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 import type { HeaderProps } from "@types";
 
 type Props = HeaderProps;
 
-const { siteLogo, navLinks, author } = Astro.props;
+const { navLinks, author } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-white px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-[var(--bg-body)] px-5 py-6 transition-colors duration-300"
 >
   <a
     href="/"
     aria-label="Home link"
-    class="font-serif text-2xl font-bold text-neutral-900 transition-colors duration-300 hover:text-primary"
+    class="font-serif text-2xl font-bold text-[var(--text-heading)] transition-colors duration-300 hover:text-primary"
   >
     {author}
   </a>
 
-  <button
-    type="button"
-    id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
-    aria-expanded="false"
-    aria-controls="main-menu"
-  >
-    <Menu />
-  </button>
+  <div class="flex items-center gap-8">
+    <nav
+      class="absolute top-20 right-5 hidden rounded-xl border border-[var(--border-color)] bg-[var(--bg-card)] px-4 py-5 text-[var(--text-body)] sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+      id="main-menu"
+    >
+      <ul class="gap-2 sm:flex">
+        {
+          navLinks.map((link) => (
+            <li class="relative">
+              <a
+                class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-[var(--text-heading)]`}
+                href={link.href}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
 
-  <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-white px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-    id="main-menu"
-  >
-    <ul class="gap-2 sm:flex">
-      {
-        navLinks.map((link) => (
-          <li class="relative">
-            <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-neutral-900`}
-              href={link.href}
-            >
-              {link.text}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+      <button
+        type="button"
+        id="menu-button"
+        class="px-1.5 text-[var(--text-heading)] sm:hidden"
+        aria-expanded="false"
+        aria-controls="main-menu"
+      >
+        <Menu />
+      </button>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -73,15 +79,15 @@ const { siteLogo, navLinks, author } = Astro.props;
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-neutral-900", "md:after:opacity-100");
+              item.classList.add("text-[var(--text-heading)]", "md:after:opacity-100");
             } else {
-              item.classList.remove("text-neutral-900", "md:after:opacity-100");
+              item.classList.remove("text-[var(--text-heading)]", "md:after:opacity-100");
             }
           });
         }
       });
     },
-    { threshold: 0.5 },
+    { rootMargin: "-45% 0px -45% 0px" },
   );
 
   document.querySelectorAll("section").forEach((section) => {

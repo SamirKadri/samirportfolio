@@ -1,13 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Gabarito Variable", ui-serif, serif;
-
-  --color-primary: #2563eb;
-  --color-neutral: #475569;
-  --color-white: #0f172a;
-  --color-black: #ffffff;
 
   --text-xs: 0.875rem;
   --text-xs--line-height: 1.125rem;
@@ -43,11 +38,76 @@
   --animate-slide-in: slide-in 600ms ease both;
 
   @keyframes slide-in {
-    10% {
-      transform: translateY(-100%);
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
     }
+
     100% {
+      opacity: 1;
       transform: translateY(0);
     }
   }
+
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.link-highlight {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+  padding-bottom: 2px;
+}
+
+.link-highlight:hover {
+  background-size: 100% 100%;
+  color: #ffffff !important;
+}
+
+/* Base Colors & Light Mode Defaults */
+:root {
+  --color-primary: #2563eb;
+
+  --bg-body: #ffffff;
+  --bg-card: #ffffff;
+  --bg-chip: #f3f4f6;
+  /* neutral-100 */
+  --bg-chip-hover: #e5e7eb;
+  /* neutral-200 */
+
+  --text-heading: #000000;
+  --text-body: #4b5563;
+  /* neutral-600 */
+  --text-muted: #6b7280;
+  /* neutral-500 */
+
+  --border-color: #e5e7eb;
+  /* neutral-200 */
+  --color-neutral: #475569;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --bg-body: #0e141b;
+  --bg-card: #1c232d;
+  --bg-chip: #1e293b;
+  --bg-chip-hover: #334155;
+
+  --text-heading: #f8fafc;
+  --text-body: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-color: #334155;
+  --color-neutral: #94a3b8;
 }

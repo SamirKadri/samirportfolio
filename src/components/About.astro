@@ -7,6 +7,9 @@ type Props = AboutProps;
 const { description } = Astro.props;
 ---
 
-<Section text="About Me" href="about">
-  <p class="w-auto text-base text-neutral md:pr-5">{description}</p>
+<Section text="About" href="about">
+  <div 
+    class="text-base leading-relaxed text-[var(--text-body)] transition-colors duration-300" 
+    set:html={description}
+  />
 </Section>
