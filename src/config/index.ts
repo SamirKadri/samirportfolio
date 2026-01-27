@@ -15,7 +15,7 @@ export const SITE_CONFIG: SiteConfig = {
   ],
   socialLinks: [
     { text: "Email", href: "mailto:samir.kadri@mail.utoronto.ca" },
-    { text: "LinkedIn", href: "#" },
+    { text: "LinkedIn", href: "https://www.linkedin.com/in/samirskadri/" },
   ],
   canonicalURL: "https://astro-zen.vercel.app",
 };

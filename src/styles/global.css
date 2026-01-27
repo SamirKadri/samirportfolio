@@ -83,8 +83,8 @@
   --bg-card: #ffffff;
   --bg-chip: #f3f4f6;
   /* neutral-100 */
-  --bg-chip-hover: #e5e7eb;
-  /* neutral-200 */
+  --bg-chip-hover: #d1d5db;
+  /* neutral-300 */
 
   --text-heading: #000000;
   --text-body: #4b5563;
@@ -102,7 +102,7 @@
   --bg-body: #0e141b;
   --bg-card: #1c232d;
   --bg-chip: #1e293b;
-  --bg-chip-hover: #334155;
+  --bg-chip-hover: #475569;
 
   --text-heading: #f8fafc;
   --text-body: #94a3b8;
