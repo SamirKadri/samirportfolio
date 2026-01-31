@@ -61,7 +61,8 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "SparkJet Actuator Model Development",
       summary: "High-fidelity CFD model for Spark-Jet actuators to simulate complex phenomena like peak jet velocity and flow reattachment using COMSOL Multiphysics on HPC clusters.",
-      image: "/shopify-clon.png",
+      linkPreview: "https://turbulence.mie.utoronto.ca/",
+      image: "/projects/sparkjet/sparkjet-cfd.png",
     },
     {
       name: "Python based CFD Solver",
@@ -72,17 +73,20 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Generalized Stochastic Microcontact Model",
       summary: "Developed a generalized 3D stochastic microcontact model on MATLAB to predict mechanical power loss of helical gears and elliptical contacts.",
-      image: "/spotifu.png",
+      linkPreview: "/FYPThesis.pdf",
+      image: "/projects/contact-model/test-rig.jpg",
     },
     {
       name: "VJTI Racing e-BAJA",
       summary: "Led end-to-end development of suspension package, bridging kinematic simulation and precision manufacturing. Ranked 1st in Design at ATVC India 2023.",
-      image: "/shopify-clon.png",
+      linkPreview: "https://www.vjtiracing.in/",
+      image: "/projects/vjtiracing/baja-car.jpg",
     },
     {
       name: "AeroVJTI - AIAA Design/Build/Fly",
       summary: "Spearheaded design of high-strength, lightweight airframe components using topology optimization and innovative foldable wing mechanism.",
-      image: "/clone-ig.png",
+      linkPreview: "https://www.aerovjti.co.in/",
+      image: "/projects/aerovjti/dbf-team.png",
     },
   ],
   about: {
