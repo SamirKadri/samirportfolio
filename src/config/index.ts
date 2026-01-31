@@ -56,7 +56,7 @@ export const SITE_CONTENT: SiteContent = {
       name: "University of Toronto Formula Racing - FSAE",
       summary: "Designed and manufactured critical vehicle systems, specializing in high-performance suspension and aerodynamics components. Developed rear suspension uprights for in-hub motor integration and 23.3% performance increase in front wing/nosecone.",
       linkPreview: "https://fsaeutoronto.ca/",
-      image: "/projects/fsae/ut-fsae-final.jpg",
+      image: "/projects/fsae/ut-fsae-final-3.jpg",
     },
     {
       name: "SparkJet Actuator Model Development",
@@ -67,7 +67,7 @@ export const SITE_CONTENT: SiteContent = {
       name: "Python based CFD Solver",
       summary: "Developed a high-fidelity CFD solver in Python for steady, incompressible flow, implementing SIMPLE algorithm and GMRES linear solver on a collocated finite-volume grid.",
       linkPreview: "/Assignment4_SamirKadri_1011619303.pdf",
-      image: "/clone-ig.png",
+      image: "/projects/cfd/velocity-streamlines-final.png",
     },
     {
       name: "Generalized Stochastic Microcontact Model",
