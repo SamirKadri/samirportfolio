@@ -44,6 +44,7 @@ export interface ProjectProps {
   image: string;
   linkPreview?: string;
   linkSource?: string;
+  images?: string[];
 }
 
 export interface AboutProps {

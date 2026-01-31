@@ -12,14 +12,14 @@ const { projects } = Astro.props;
 
 <Section text="Featured Projects" href="projects">
   {
-    projects.map(({ name, summary, image, linkPreview, linkSource }, index) => {
+    projects.map(({ name, summary, image, images, linkPreview, linkSource }, index) => {
       const top = 98 + index * 40;
       return (
         <div
           style={`top: ${top}px;`}
           class="sticky mb-12 rounded-2xl border border-transparent dark:border-[var(--border-color)] bg-[var(--bg-chip-hover)] dark:bg-[var(--bg-card)] transition-colors duration-300"
         >
-          <div class="relative z-[1] grid h-[580px] w-full grid-rows-2 overflow-hidden rounded-2xl bg-[var(--bg-chip-hover)] dark:bg-[var(--bg-card)] transition-colors duration-300 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[2%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+          <div class="relative z-[1] grid h-[580px] w-full grid-rows-2 overflow-hidden rounded-2xl bg-[var(--bg-chip-hover)] dark:bg-[var(--bg-card)] transition-colors duration-300 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[2%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-[450px]">
             <div class="px-6 pt-12 pb-6">
               <h3 class="mb-5 font-serif text-3xl font-medium text-[var(--text-heading)] transition-colors duration-300">
                 <a
@@ -32,18 +32,132 @@ const { projects } = Astro.props;
               </h3>
               <p class="text-base text-[var(--text-body)] transition-colors duration-300">{summary}</p>
             </div>
-            <div class="flex items-end justify-end overflow-hidden">
-              <Image
-                class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-left-top sm:h-[85%] sm:w-full"
-                src={image}
-                alt={name}
-                width="736"
-                height="483"
-              />
+            <div class="flex items-end justify-end overflow-hidden h-full relative group">
+              {images && images.length > 0 ? (
+                <div class="relative w-full h-[95%] sm:h-[85%] rounded-ss-xl rounded-ee-2xl overflow-hidden carousel-container" id={`carousel-${index}`}>
+                  {images.map((img, imgIndex) => (
+                    <div class={`absolute inset-0 transition-opacity duration-500 ease-in-out ${imgIndex === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'} carousel-item`}>
+                       <Image
+                        class="h-full w-full object-cover object-left-top"
+                        src={img}
+                        alt={`${name} - Image ${imgIndex + 1}`}
+                        width="736"
+                        height="483"
+                      />
+                    </div>
+                  ))}
+                  
+                  <button 
+                    class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-20 transition-all opacity-0 group-hover:opacity-100 carousel-prev"
+                    aria-label="Previous image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                    </svg>
+                  </button>
+                  
+                  <button 
+                    class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 z-20 transition-all opacity-0 group-hover:opacity-100 carousel-next"
+                    aria-label="Next image"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="size-5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
+                  
+                  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                    {images.map((_, dotIndex) => (
+                      <button 
+                        class={`w-2 h-2 rounded-full transition-all ${dotIndex === 0 ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/80'} carousel-dot`}
+                        aria-label={`Go to slide ${dotIndex + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Image
+                  class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-cover object-left-top sm:h-[85%] sm:w-full"
+                  src={image}
+                  alt={name}
+                  width="736"
+                  height="483"
+                />
+              )}
             </div>
           </div>
         </div>
       );
     })
   }
+
+  <script>
+    function setupCarousels() {
+      const carousels = document.querySelectorAll('.carousel-container');
+      
+      carousels.forEach(container => {
+        const items = container.querySelectorAll<HTMLElement>('.carousel-item');
+        const dots = container.querySelectorAll<HTMLElement>('.carousel-dot');
+        const prevBtn = container.querySelector('.carousel-prev');
+        const nextBtn = container.querySelector('.carousel-next');
+        
+        let currentIndex = 0;
+        
+        const showSlide = (index: number) => {
+          // Normalize index
+          if (index < 0) index = items.length - 1;
+          if (index >= items.length) index = 0;
+          
+          currentIndex = index;
+          
+          // Update items
+          items.forEach((item, i) => {
+            if (i === currentIndex) {
+              item.classList.remove('opacity-0', 'z-0');
+              item.classList.add('opacity-100', 'z-10');
+            } else {
+              item.classList.remove('opacity-100', 'z-10');
+              item.classList.add('opacity-0', 'z-0');
+            }
+          });
+          
+          // Update dots
+          dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+              dot.classList.remove('bg-white/50', 'hover:bg-white/80');
+              dot.classList.add('bg-white', 'scale-125');
+            } else {
+              dot.classList.add('bg-white/50', 'hover:bg-white/80');
+              dot.classList.remove('bg-white', 'scale-125');
+            }
+          });
+        };
+        
+        prevBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          showSlide(currentIndex - 1);
+        });
+        
+        nextBtn?.addEventListener('click', (e) => {
+          e.preventDefault();
+          showSlide(currentIndex + 1);
+        });
+        
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSlide(index);
+          });
+        });
+      });
+    }
+
+    // Run on invalidation (view transitions) and initial load
+    document.addEventListener('astro:page-load', setupCarousels);
+    // Fallback for initial load if view transitions aren't enabled or working as expected
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupCarousels);
+    } else {
+        setupCarousels();
+    }
+  </script>
 </Section>
